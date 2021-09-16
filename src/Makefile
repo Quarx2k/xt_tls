@@ -7,7 +7,7 @@ DESTDIR ?= /
 PWD := $(shell pwd)
 VERSION := $(shell git rev-parse HEAD 2>/dev/null)
 default:
-	    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+	    $(MAKE) -C $(KDIR) M=$(PWD) SUBDIRS=$(PWD) modules
 
 debug:
 	    $(MAKE) -C $(KDIR) SUBDIRS=$(PWD) CFLAGS_MODULE="-DXT_TLS_DEBUG" modules
